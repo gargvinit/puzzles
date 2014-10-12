@@ -1,0 +1,17 @@
+classes
+results
+target
+temp
+.DS_Store
+.classpath
+.project
+.settings
+.svn
+bin
+.cache
+*.iml
+*.idl
+.idea
+
+build.sbt
+/project
