@@ -3,7 +3,7 @@ puzzles
 
 git clone https://github.com/gargvinit/puzzles.git
 
-cd Sudoku+
+cd puzzles/Sudoku+
 
 and follow instructions at Sudoku+ Enjoy !
 
