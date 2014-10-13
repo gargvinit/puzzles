@@ -1,4 +1,4 @@
-package puzzles.sudoku;
+package puzzles.sudoku.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,8 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import puzzles.sudoku.impl.MatrixViewFactory;
-import puzzles.sudoku.impl.SudokuCheck;
+import javax.swing.text.html.HTMLDocument.HTMLReader.SpecialAction;
 
 public class SudokuMatrix {
 
@@ -22,26 +21,33 @@ public class SudokuMatrix {
 		return colToString(issues);
 	}
 
-	public SudokuMatrix(List<String> ip) {
+	private final String separator;
+
+	public SudokuMatrix(List<String> ip, String separator) {
+		this.separator = separator;
 		checkCompleteSolution(ip);
-		if (isValid()) {
-			int N = N(ip);
-			matrix = new Integer[N][];
-			for (int i = 0; i < N; i++) {
-				matrix[i] = new Integer[N];
-				String[] elements = elements(ip.get(i));
-				for (int j = 0; j < N; j++) {
-					matrix[i][j] = Integer.parseInt(elements[j]);
-				}
-			}
-			ensureValidMatrix();
-			if (isValid()) {
-				SudokuCheck rulesChecks = new SudokuCheck(
-						MatrixViewFactory.getViews(matrix));
-				issues.addAll(rulesChecks.issues());
-			}
-		} else
+		if (!isValid()) {
 			matrix = null;
+			return;
+		}
+		int N = N(ip);
+		matrix = new Integer[N][];
+		for (int i = 0; i < N; i++) {
+			matrix[i] = new Integer[N];
+			String[] elements = elements(ip.get(i));
+			for (int j = 0; j < N; j++) {
+				matrix[i][j] = Integer.parseInt(elements[j]);
+			}
+		}
+		ensureValidMatrix();
+		if (!isValid()) {
+			return;
+		}
+
+		SudokuCheck rulesChecks = new SudokuCheck(
+				MatrixViewFactory.getViews(matrix));
+		issues.addAll(rulesChecks.issues());
+
 	}
 
 	private void ensureValidMatrix() {
@@ -101,7 +107,7 @@ public class SudokuMatrix {
 	}
 
 	private String[] elements(String ip) {
-		return ip.split(",");
+		return ip.split(separator);
 	}
 
 	private Integer numElements(String ip) {

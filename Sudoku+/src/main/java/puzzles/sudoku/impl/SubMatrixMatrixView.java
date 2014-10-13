@@ -12,14 +12,17 @@ public class SubMatrixMatrixView implements MatrixView {
 	public SubMatrixMatrixView(Integer[][] matrix, Integer row, Integer column) {
 		this.row = row;
 		this.col = column;
-		if (matrix != null && matrix.length > row && row > 0 && col > 0) {
-			for (int i = row; i < row + Math.sqrt(matrix.length); i++) {
-				for (int j = col; j < col + Math.sqrt(matrix.length); j++) {
-					if (matrix[i].length > j)
-						elements.add(matrix[i][j]);
-				}
+		if (matrix == null || matrix.length <= row || row < 0 || col < 0)
+			return;
+
+		for (int i = row; i < row + Math.sqrt(matrix.length); i++) {
+			for (int j = col; j < col + Math.sqrt(matrix.length); j++) {
+				if (j >= matrix[i].length)
+					continue;
+				elements.add(matrix[i][j]);
 			}
 		}
+
 	}
 
 	public List<Integer> elements() {

@@ -14,12 +14,14 @@ public class SudokuCheck {
 	private final List<MatrixView> incorrectViews = new ArrayList<MatrixView>();
 
 	public SudokuCheck(List<MatrixView> views) {
-		if (views != null) {
-			for (MatrixView view : views) {
-				if (!viewOk(view)) {
-					incorrectViews.add(view);
-				}
+		if (views == null) {
+			return;
+		}
+		for (MatrixView view : views) {
+			if (!viewOk(view)) {
+				incorrectViews.add(view);
 			}
+
 		}
 	}
 
@@ -29,13 +31,19 @@ public class SudokuCheck {
 
 	public List<String> issues() {
 		List<String> issues = new ArrayList<String>();
-		for (MatrixView incorrectView : incorrectViews) {
-			issues.add(incorrectView.viewType() + " at "
-					+ incorrectView.startLocation() + " is invalid");
+		for (MatrixView iv : incorrectViews) {
+			issues.add(iv.viewType() + " at " + iv.startLocation()
+					+ " is invalid");
 		}
 		return issues;
 	}
 
+	/**
+	 * Find the maximum and ensure that sum is same as n*(n+1)/2
+	 * 
+	 * @param view
+	 * @return
+	 */
 	private boolean viewOk(MatrixView view) {
 		int sum = 0;
 		int max = 0;

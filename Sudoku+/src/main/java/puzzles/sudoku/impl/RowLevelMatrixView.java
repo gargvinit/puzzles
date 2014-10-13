@@ -9,11 +9,13 @@ public class RowLevelMatrixView implements MatrixView {
 
 	public RowLevelMatrixView(Integer[][] matrix, Integer row) {
 		this.row = row;
-		if (matrix != null && matrix.length > row && row > 0) {
-			for (int i = 0; i < matrix[row].length; i++) {
-				elements.add(matrix[row][i]);
-			}
+		if (matrix == null || row >= matrix.length || row < 0)
+			return;
+
+		for (int i = 0; i < matrix[row].length; i++) {
+			elements.add(matrix[row][i]);
 		}
+
 	}
 
 	public List<Integer> elements() {
@@ -25,7 +27,7 @@ public class RowLevelMatrixView implements MatrixView {
 	}
 
 	public String startLocation() {
-		return "" + row + 1;
+		return "" + (row + 1);
 	}
 
 }
