@@ -30,7 +30,7 @@ public class VerificationApp {
 			separator = ",";
 		}
 		VerificationApp app = new VerificationApp(separator);
-		app.status(args);
+		app.printStatus(args);
 	}
 
 	private final String separator;
@@ -39,7 +39,7 @@ public class VerificationApp {
 		this.separator = separator;
 	}
 
-	private void status(String[] args) {
+	private void printStatus(String[] args) {
 		Map<String, String> fileStatuses = new HashMap<String, String>();
 		for (String arg : args) {
 			File f = new File(arg);
