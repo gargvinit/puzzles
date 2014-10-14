@@ -3,6 +3,13 @@ package puzzles.sudoku.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Provides the column level elements given matrix and column Column index is 0
+ * based
+ * 
+ * @author vgarg
+ * 
+ */
 public class ColumnLevelMatrixView implements MatrixView {
 	private final Integer column;
 	private List<Integer> elements = new ArrayList<Integer>();

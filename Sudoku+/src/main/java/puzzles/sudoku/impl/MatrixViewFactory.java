@@ -5,7 +5,9 @@ import java.util.List;
 
 public class MatrixViewFactory {
 	/**
-	 * Provides different views of matrix to check
+	 * Provides different views of matrix to check. This is where we would
+	 * configure all the views we need to check for. Currently views and checks
+	 * are decoupled.
 	 * 
 	 * @param matrix
 	 * @return

@@ -6,16 +6,33 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Main matrix class responsible for receiving a list of strings and verifying
+ * the matrix.
+ * 
+ * @author vgarg
+ * 
+ */
 public class SudokuMatrix {
 
 	private List<String> issues = new ArrayList<String>();
 	private final Integer[][] matrix;
 
+	/**
+	 * Returns true if all the checks are met by the matrix.
+	 * 
+	 * @return
+	 */
 	public boolean isValid() {
 		return issues().isEmpty();
 	}
 
+	/**
+	 * Returns issues in comma separated format. Returns empty string if there
+	 * are no issues.
+	 * 
+	 * @return
+	 */
 	public String issues() {
 		return colToString(issues);
 	}

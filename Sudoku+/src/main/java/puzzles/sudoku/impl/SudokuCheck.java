@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Checks for Sudoku by ensuring that each view is separately correct.
+ * Checks for Sudoku by ensuring that each view is separately correct. Assumes
+ * that all views must maintain the invariant of having distinct elements. Makes
+ * some assumptions about elements in view are within acceptable range
  * 
  * @author vgarg
  * 

@@ -3,6 +3,13 @@ package puzzles.sudoku.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Provides the elements in row given the the matrix and row number. Row number
+ * is 0 based
+ * 
+ * @author vgarg
+ * 
+ */
 public class RowLevelMatrixView implements MatrixView {
 	private final Integer row;
 	private List<Integer> elements = new ArrayList<Integer>();

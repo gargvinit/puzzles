@@ -3,6 +3,13 @@ package puzzles.sudoku.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Provides elements in square root of N section starting at row and col
+ * provided.
+ * 
+ * @author vgarg
+ * 
+ */
 public class SubMatrixMatrixView implements MatrixView {
 	private final Integer row;
 	private final Integer col;

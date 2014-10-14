@@ -9,6 +9,13 @@ import java.util.List;
 import puzzles.sudoku.impl.SudokuMatrix;
 import junit.framework.TestCase;
 
+/**
+ * Tests based on file name convention that files are valid or not. Does not
+ * check for reason for invalidity currently.
+ * 
+ * @author vgarg
+ * 
+ */
 public class SudokuPlusFilesTest extends TestCase {
 	public void testValidInputs() throws IOException {
 		String[] validFiles = { "1x1", "4x4", "9x9" };

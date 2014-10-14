@@ -39,6 +39,12 @@ public class VerificationApp {
 		this.separator = separator;
 	}
 
+	/**
+	 * Expects files or directories as arguments. Goes through first level
+	 * hierarchy of files in a directory Gets the file statuses and prints them.
+	 * 
+	 * @param args
+	 */
 	private void printStatus(String[] args) {
 		Map<String, String> fileStatuses = new HashMap<String, String>();
 		for (String arg : args) {
@@ -61,6 +67,12 @@ public class VerificationApp {
 
 	}
 
+	/**
+	 * Validates a file in layered fashion and provides statuses
+	 * 
+	 * @param arg
+	 * @return
+	 */
 	private String status(String arg) {
 		File f = new File(arg);
 		if (!f.exists()) {
