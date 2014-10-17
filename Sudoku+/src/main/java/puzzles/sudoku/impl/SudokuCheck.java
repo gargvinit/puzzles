@@ -1,7 +1,9 @@
 package puzzles.sudoku.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Checks for Sudoku by ensuring that each view is separately correct. Assumes
@@ -49,8 +51,8 @@ public class SudokuCheck {
 	private boolean viewOk(MatrixView view) {
 		int sum = 0;
 		int max = 0;
-
-		for (Integer element : view.elements()) {
+		Set<Integer> uniqueElements = new HashSet<Integer>(view.elements());
+		for (Integer element : uniqueElements) {
 			sum += element;
 			if (element > max)
 				max = element;

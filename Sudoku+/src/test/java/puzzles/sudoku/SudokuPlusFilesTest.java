@@ -23,7 +23,7 @@ public class SudokuPlusFilesTest extends TestCase {
 			SudokuMatrix matrix = getMatrix("validInput " + validFile);
 			assertTrue(validFile + " must be valid", matrix.isValid());
 			assertTrue(
-					validFile + "must not have any issues " + matrix.issues(),
+					validFile + " must not have any issues " + matrix.issues(),
 					matrix.issues().isEmpty());
 		}
 	}
@@ -32,10 +32,10 @@ public class SudokuPlusFilesTest extends TestCase {
 		String[] validFiles = { "TextualEnglish", "SizeMismatch",
 				"NumbersNotMatching", "NumbersNotInRange",
 				"NonNumericCharacter", "Empty", "ElementsAre0",
-				"DuplicateEntries", "2x2" };
+				"DuplicateEntries", "2x2", "4x4" };
 		for (String invalidFile : validFiles) {
 			SudokuMatrix matrix = getMatrix("invalidInput" + invalidFile);
-			assertFalse(invalidFile + "must not be valid", matrix.isValid());
+			assertFalse(invalidFile + " must not be valid", matrix.isValid());
 			assertFalse(invalidFile + " must have issues", matrix.issues()
 					.isEmpty());
 		}
